@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO Landing</title>
+</head>
+<body>
+    <div align="center">
+        <h1>TODO LIST</h1>
+        <form action = "#" th:action = "@{/username}"  th:object="${tasklist}" method = "post">     
+            <label>Username:</label>
+                <input type="text" placeholder="Please enter username" th:field="*{username}"/> </br> 
+            <button type= "submit"> Submit </button>
+        </form>
+    </div>
+</body>
+</html>

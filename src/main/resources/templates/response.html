@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO Landing</title>
+</head>
+<body>
+    
+        <div align="center">
+            <h1>TODO LIST</h1>
+            <form action = "#" th:action = "@{/add}"  th:object="${task}" method = "post">     
+                <label>Task to add:</label>
+                    <input type="text" placeholder="Please enter a task" th:field="*{task}"/> </br>
+                <button type= "submit"> Submit </button>
+            </form>
+        </div>
+        <div align="center">
+        <form action = "#" th:action = "@{/deleteorsave}"  th:object="${tasknum}" method = "post">     
+            <label>Task to delete (number):</label> 
+                <input type="text" placeholder="Please task number to delete" th:field="*{taskNum}"/></br>
+            <button type= "submit" name="action" value="delete"> Delete Task </button></br>
+            <button type= "save" name="action" value="save"> Save List </button>
+        </form>
+        </div>
+        <div align="center">
+        <table>
+            <th:block th:each="map : ${tasklist}">
+               <tr th:each="e : ${map}">
+                  <td th:text="${e.key}"></td>
+                  <td th:text="${e.value}"></td>
+               </tr>
+            </th:block>
+        </table>
+        </div>
+    
+    
+</body>
+</html>
